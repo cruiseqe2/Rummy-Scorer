@@ -6,17 +6,44 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXFileReference section */
-		65BCBF1C2F3810EB0073BAAC /* Rummy Scorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rummy Scorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
+/* Begin PBXBuildFile section */
+		65197BE42F5E178900ACA6D8 /* RadioButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65197BE32F5E178900ACA6D8 /* RadioButtonsView.swift */; };
+		65197BE62F5EDC4000ACA6D8 /* EnterTotalsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65197BE52F5EDC4000ACA6D8 /* EnterTotalsSheet.swift */; };
+		655B39662F5A374B00436E4A /* XXXXXTotalItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B39652F5A374B00436E4A /* XXXXXTotalItemsView.swift */; };
+		655F3C092F4DB63500EBCE5F /* XXXXXMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F3C082F4DB63500EBCE5F /* XXXXXMainView.swift */; };
+		655F3C0B2F4DB92900EBCE5F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F3C0A2F4DB92900EBCE5F /* SettingsView.swift */; };
+		655F3C0D2F4E6D7100EBCE5F /* EnterScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F3C0C2F4E6D7100EBCE5F /* EnterScoresView.swift */; };
+		655F3C0F2F51004700EBCE5F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655F3C0E2F51004700EBCE5F /* MainView.swift */; };
+		65E513682F4BE63400AFCFF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E5135E2F4BE63400AFCFF0 /* Assets.xcassets */; };
+		65E513692F4BE63400AFCFF0 /* XXXXXContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5135F2F4BE63400AFCFF0 /* XXXXXContentView.swift */; };
+		65E5136A2F4BE63400AFCFF0 /* Extension-View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E513602F4BE63400AFCFF0 /* Extension-View.swift */; };
+		65E5136B2F4BE63400AFCFF0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E513612F4BE63400AFCFF0 /* Model.swift */; };
+		65E5136C2F4BE63400AFCFF0 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E513622F4BE63400AFCFF0 /* PreferenceKeys.swift */; };
+		65E5136D2F4BE63400AFCFF0 /* Rummy_ScorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E513632F4BE63400AFCFF0 /* Rummy_ScorerApp.swift */; };
+		65E5136E2F4BE63400AFCFF0 /* ShowScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E513642F4BE63400AFCFF0 /* ShowScoring.swift */; };
+		65E5136F2F4BE63400AFCFF0 /* XXXXXTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E513652F4BE63400AFCFF0 /* XXXXXTest.swift */; };
+		65E513702F4BE63400AFCFF0 /* XXXXXTrial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E513662F4BE63400AFCFF0 /* XXXXXTrial.swift */; };
+/* End PBXBuildFile section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		65BCBF1E2F3810EB0073BAAC /* Rummy Scorer */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Rummy Scorer";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
+/* Begin PBXFileReference section */
+		65197BE32F5E178900ACA6D8 /* RadioButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonsView.swift; sourceTree = "<group>"; };
+		65197BE52F5EDC4000ACA6D8 /* EnterTotalsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTotalsSheet.swift; sourceTree = "<group>"; };
+		655B39652F5A374B00436E4A /* XXXXXTotalItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XXXXXTotalItemsView.swift; sourceTree = "<group>"; };
+		655F3C082F4DB63500EBCE5F /* XXXXXMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XXXXXMainView.swift; sourceTree = "<group>"; };
+		655F3C0A2F4DB92900EBCE5F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		655F3C0C2F4E6D7100EBCE5F /* EnterScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterScoresView.swift; sourceTree = "<group>"; };
+		655F3C0E2F51004700EBCE5F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		65BCBF1C2F3810EB0073BAAC /* Rummy Scorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rummy Scorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65E5135E2F4BE63400AFCFF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65E5135F2F4BE63400AFCFF0 /* XXXXXContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XXXXXContentView.swift; sourceTree = "<group>"; };
+		65E513602F4BE63400AFCFF0 /* Extension-View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-View.swift"; sourceTree = "<group>"; };
+		65E513612F4BE63400AFCFF0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		65E513622F4BE63400AFCFF0 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
+		65E513632F4BE63400AFCFF0 /* Rummy_ScorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rummy_ScorerApp.swift; sourceTree = "<group>"; };
+		65E513642F4BE63400AFCFF0 /* ShowScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScoring.swift; sourceTree = "<group>"; };
+		65E513652F4BE63400AFCFF0 /* XXXXXTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XXXXXTest.swift; sourceTree = "<group>"; };
+		65E513662F4BE63400AFCFF0 /* XXXXXTrial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XXXXXTrial.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		65BCBF192F3810EB0073BAAC /* Frameworks */ = {
@@ -32,7 +59,7 @@
 		65BCBF132F3810EB0073BAAC = {
 			isa = PBXGroup;
 			children = (
-				65BCBF1E2F3810EB0073BAAC /* Rummy Scorer */,
+				65E513672F4BE63400AFCFF0 /* Rummy Scorer */,
 				65BCBF1D2F3810EB0073BAAC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +70,29 @@
 				65BCBF1C2F3810EB0073BAAC /* Rummy Scorer.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		65E513672F4BE63400AFCFF0 /* Rummy Scorer */ = {
+			isa = PBXGroup;
+			children = (
+				65E5135E2F4BE63400AFCFF0 /* Assets.xcassets */,
+				65E513632F4BE63400AFCFF0 /* Rummy_ScorerApp.swift */,
+				65E513602F4BE63400AFCFF0 /* Extension-View.swift */,
+				65E513622F4BE63400AFCFF0 /* PreferenceKeys.swift */,
+				65E513612F4BE63400AFCFF0 /* Model.swift */,
+				65E513642F4BE63400AFCFF0 /* ShowScoring.swift */,
+				655F3C0E2F51004700EBCE5F /* MainView.swift */,
+				655F3C0A2F4DB92900EBCE5F /* SettingsView.swift */,
+				65197BE32F5E178900ACA6D8 /* RadioButtonsView.swift */,
+				655F3C0C2F4E6D7100EBCE5F /* EnterScoresView.swift */,
+				65197BE52F5EDC4000ACA6D8 /* EnterTotalsSheet.swift */,
+				655B39652F5A374B00436E4A /* XXXXXTotalItemsView.swift */,
+				655F3C082F4DB63500EBCE5F /* XXXXXMainView.swift */,
+				65E513662F4BE63400AFCFF0 /* XXXXXTrial.swift */,
+				65E513652F4BE63400AFCFF0 /* XXXXXTest.swift */,
+				65E5135F2F4BE63400AFCFF0 /* XXXXXContentView.swift */,
+			);
+			path = "Rummy Scorer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +109,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				65BCBF1E2F3810EB0073BAAC /* Rummy Scorer */,
 			);
 			name = "Rummy Scorer";
 			packageProductDependencies = (
@@ -109,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E513682F4BE63400AFCFF0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +167,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E513692F4BE63400AFCFF0 /* XXXXXContentView.swift in Sources */,
+				655F3C0F2F51004700EBCE5F /* MainView.swift in Sources */,
+				65197BE42F5E178900ACA6D8 /* RadioButtonsView.swift in Sources */,
+				65E5136A2F4BE63400AFCFF0 /* Extension-View.swift in Sources */,
+				65197BE62F5EDC4000ACA6D8 /* EnterTotalsSheet.swift in Sources */,
+				65E5136B2F4BE63400AFCFF0 /* Model.swift in Sources */,
+				655B39662F5A374B00436E4A /* XXXXXTotalItemsView.swift in Sources */,
+				655F3C092F4DB63500EBCE5F /* XXXXXMainView.swift in Sources */,
+				65E5136C2F4BE63400AFCFF0 /* PreferenceKeys.swift in Sources */,
+				655F3C0D2F4E6D7100EBCE5F /* EnterScoresView.swift in Sources */,
+				655F3C0B2F4DB92900EBCE5F /* SettingsView.swift in Sources */,
+				65E5136D2F4BE63400AFCFF0 /* Rummy_ScorerApp.swift in Sources */,
+				65E5136E2F4BE63400AFCFF0 /* ShowScoring.swift in Sources */,
+				65E5136F2F4BE63400AFCFF0 /* XXXXXTest.swift in Sources */,
+				65E513702F4BE63400AFCFF0 /* XXXXXTrial.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
