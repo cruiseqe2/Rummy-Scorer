@@ -11,24 +11,30 @@ import SwiftUI
 @Observable
 class Model {
     
+    struct DealerOption: Identifiable, Hashable {
+        let id = UUID()
+        let name: String
+    }
+    
+    struct scoreEntry: Identifiable {
+        var id: UUID = UUID()
+        var scoreLine: Int
+        var playerNumber: Int
+        var credits: Int?
+        var debits: Int?
+        var total: Int
+    }
+    
     var players = ["Elaine", "Mark"]
     
     var gameFinished = false
     var winnerIs: Int? = nil
     
-    struct PizzaTopping: Identifiable, Hashable {
-        let id = UUID()
-        let name: String
+    var dealerOptions: [DealerOption] {
+        players.map { DealerOption(name: $0) }
     }
     
-    var pizzaToppings: [PizzaTopping] {
-        players.map { PizzaTopping(name: $0) }
-    }
-    
-    var firstDealer: PizzaTopping? = nil
-//        didSet {
-//            print("First dealer is now \(firstDealer?.name ?? "none")")
-//        }
+    var firstDealer: DealerOption? = nil
     
     var player0DealsFirst: Bool? {
         if let firstDealer {
@@ -42,20 +48,9 @@ class Model {
         }
     }
     
-//    var currentDealer = 0
-    
     var useJokers: Bool = true
     var jokerValue: Int = 10
     var playUpTo: Int = 500
-    
-    struct scoreEntry: Identifiable {
-        var id: UUID = UUID()
-        var scoreLine: Int
-        var playerNumber: Int
-        var credits: Int?
-        var debits: Int?
-        var total: Int
-    }
     
     var p0TotalRightEdge: CGFloat = 0
     var p1TotalRightEdge: CGFloat = 0
@@ -67,6 +62,18 @@ class Model {
     var p1EntryMade: Bool = false
     
     var scoreSheet: [scoreEntry] = []
+    
+    var p0Total: Int {
+        scoreSheet
+            .filter { $0.playerNumber == 0 }
+            .reduce(0) { $0 + $1.total }
+    }
+    
+    var p1Total: Int {
+        scoreSheet
+            .filter { $0.playerNumber == 1 }
+            .reduce(0) { $0 + $1.total }
+    }
     
     func addScoreEntry(scoreLine: Int, playerNumber: Int, credits: Int, debits: Int) {
         scoreSheet.append(scoreEntry(scoreLine: scoreLine, playerNumber: playerNumber, credits: credits, debits: debits, total: credits - debits))
@@ -95,131 +102,27 @@ class Model {
             if p0Total >= playUpTo && p1Total >= playUpTo {
                 if p0Total == p1Total {
                     gameFinished = true
-//                    firstDealer = nil
                     winnerIs = 2
                 } else {
                     if p0Total >= p1Total {
                         gameFinished = true
-//                        firstDealer = nil
                         winnerIs = 0
                     } else {
                         gameFinished = true
-//                        firstDealer = nil
                         winnerIs = 1
                     }
                 }
             } else {
                 if p0Total >= playUpTo {
                     gameFinished = true
-//                    firstDealer = nil
                     winnerIs = 0
                 }
                 if p1Total >= playUpTo {
                     gameFinished = true
-//                    firstDealer = nil
                     winnerIs = 1
                 }
             }
         }
-    }
-    
-    
-    func addTestData() {
-        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 100, debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 150, debits: 75)
-//        lineNumber += 1
-        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 10,  debits: 150)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 300, debits: 275)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 75,  debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 60,  debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 100, debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 150, debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 10,  debits: 150)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 300, debits: 275)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 75,  debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 60,  debits: 75)
-//        lineNumber += 1
-        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 100, debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 150, debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 10,  debits: 150)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 300, debits: 275)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 75,  debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 60,  debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 100, debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 150, debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 10,  debits: 150)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 300, debits: 275)
-//        lineNumber += 1
-        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 75,  debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 60,  debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 100, debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 150, debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 10,  debits: 150)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 300, debits: 275)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 75,  debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 60,  debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 100, debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 150, debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 10,  debits: 150)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 300, debits: 275)
-//        lineNumber += 1
-        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 75,  debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 60,  debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 100, debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 150, debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 10,  debits: 150)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 300, debits: 275)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 75,  debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 60,  debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 100, debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 150, debits: 75)
-//        lineNumber += 1
-//        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 10,  debits: 150)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 300, debits: 275)
-//        lineNumber += 1
-        
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 0, credits: 75,  debits: 50)
-//        addScoreEntry(scoreLine: lineNumber, playerNumber: 1, credits: 60,  debits: 75)
-//        lineNumber += 1
     }
     
     func getFigures(forLine line: Int, andPlayer player: Int) -> (credits: Int?, debits: Int?, total: Int) {
@@ -228,18 +131,6 @@ class Model {
         } else {
             return (nil, nil, 0)
         }
-    }
-    
-    var p0Total: Int {
-        scoreSheet
-            .filter { $0.playerNumber == 0 }
-            .reduce(0) { $0 + $1.total }
-    }
-    
-    var p1Total: Int {
-        scoreSheet
-            .filter { $0.playerNumber == 1 }
-            .reduce(0) { $0 + $1.total }
     }
     
 }

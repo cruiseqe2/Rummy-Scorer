@@ -35,7 +35,7 @@ struct SettingsView: View {
                     Text("Who deals first?")
                     HStack(spacing: 30) {
                         RadioButtonsView(
-                            model.pizzaToppings,
+                            model.dealerOptions,
                             selection: $model.firstDealer) { topping in
                                 HStack {
                                     Image(systemName: topping.name == model.firstDealer?.name ? "checkmark.circle.fill" : "circle")
