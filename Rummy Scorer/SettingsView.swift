@@ -36,11 +36,11 @@ struct SettingsView: View {
                     HStack(spacing: 30) {
                         RadioButtonsView(
                             model.dealerOptions,
-                            selection: $model.firstDealer) { topping in
+                            selection: $model.firstDealer) { person in
                                 HStack {
-                                    Image(systemName: topping.name == model.firstDealer?.name ? "checkmark.circle.fill" : "circle")
-                                        .foregroundStyle(topping.name == model.firstDealer?.name ? .blue : .primary)
-                                    Text(topping.name)
+                                    Image(systemName: person.name == model.firstDealer?.name ? "checkmark.circle.fill" : "circle")
+                                        .foregroundStyle(person.name == model.firstDealer?.name ? .blue : .primary)
+                                    Text(person.name)
                                 }
                             }
                     }
