@@ -51,7 +51,7 @@ struct EnterTotalsSheet: View {
                 .padding(.horizontal, 20)
         }
         HStack(spacing: 60) {
-//            Spacer()
+            
             Button {
                 dismiss()
             } label: {
@@ -61,14 +61,12 @@ struct EnterTotalsSheet: View {
                     .frame(height: 44)
             }
             .buttonStyle(.bordered)
-//            Spacer()
-//            Spacer()
-//            Spacer()
+
             Button {
                 model.addScoreEntry(scoreLine: model.lineNumber, playerNumber: player, total: totalScore)
                 dismiss()
             } label: {
-                Text("Add Total")
+                Text("Accept Total")
                     .font(.headline.bold())
                     .frame(maxWidth: .infinity)
                     .frame(height: 44)
@@ -79,7 +77,6 @@ struct EnterTotalsSheet: View {
         .padding(.bottom, 35)
         .padding(.horizontal, 20)
         
-//        Spacer()
     }
 }
 

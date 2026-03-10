@@ -11,7 +11,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(Model.self) var model
-
+    
     var body: some View {
         @Bindable var model = model
         VStack(spacing: 0) {
@@ -21,19 +21,22 @@ struct SettingsView: View {
                 .padding(.top, 24)
                 .padding(.bottom, 8)
             
-            Divider()
-            
             Spacer()
-            VStack(spacing: 25) {
-                Text("Player 1: Elaine")
-                Text("Player 2: Mark")
-                Text("Using Jokers: Yes")
-                Text("Joker Value: 10")
-                Text("Play Up To: \(model.playUpTo)")
+            
+            Form {
+                Section("Players") {
+                    Text("Player 1: Elaine")
+                    Text("Player 2: Mark")
+                }
                 
-                HStack(spacing: 30) {
-                    Text("Who deals first?")
-                    HStack(spacing: 30) {
+                Section("Options") {
+                    Text("Using Jokers: Yes")
+                    Text("Joker Value: 10")
+                    Text("Play Up To: \(model.playUpTo)")
+                }
+                
+                Section("First to Deal") {
+                    HStack(spacing: 60) {
                         RadioButtonsView(
                             model.dealerOptions,
                             selection: $model.firstDealer) { person in
@@ -46,39 +49,54 @@ struct SettingsView: View {
                     }
                     .disabled(!model.scoreSheet.isEmpty && !model.gameFinished)
                 }
+            }
+
+        }
+        .padding(.top, 12)
+        .toolbar(.hidden, for: .navigationBar) // fully hide nav bar
+        .safeAreaInset(edge: .bottom) {
+            HStack(spacing: 30) {
                 
-                HStack(spacing: 50){
-                    Button(model.scoreSheet.isEmpty || model.gameFinished ? "Play" : "Continue") {
-                        if model.gameFinished {
-                            model.scoreSheet.removeAll()
-                            model.lineNumber = 1
-                            model.p0EntryMade = false
-                            model.p1EntryMade = false
-                            model.gameFinished = false
-                            model.winnerIs = nil
-                        }
-                        model.stackPath.removeLast()
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(model.firstDealer == nil)
-                    
-                    Button("Reset") {
+                Button {
+                    if model.gameFinished {
                         model.scoreSheet.removeAll()
                         model.lineNumber = 1
                         model.p0EntryMade = false
                         model.p1EntryMade = false
-                        model.firstDealer = nil
                         model.gameFinished = false
                         model.winnerIs = nil
                     }
-                    .buttonStyle(.bordered)
-                    .disabled(model.firstDealer == nil || model.scoreSheet.isEmpty || model.gameFinished)
+                    model.stackPath.removeLast()
+                } label: {
+                    Text(model.scoreSheet.isEmpty || model.gameFinished ? "Play" : "Continue")
+                        .font(.headline.bold())
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 44)
                 }
+                .buttonStyle(.borderedProminent)
+                .disabled(model.firstDealer == nil)
+                
+                Button {
+                    model.scoreSheet.removeAll()
+                    model.lineNumber = 1
+                    model.p0EntryMade = false
+                    model.p1EntryMade = false
+                    model.firstDealer = nil
+                    model.gameFinished = false
+                    model.winnerIs = nil
+                } label: {
+                    Text("Reset")
+                        .font(.headline.bold())
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 44)
+                }
+                .buttonStyle(.bordered)
+                .disabled(model.firstDealer == nil || model.scoreSheet.isEmpty || model.gameFinished)
+                
             }
-            .padding(.top, 12)
-            Spacer()
+            .padding(.horizontal)
+            .frame(height: 300)
         }
-        .toolbar(.hidden, for: .navigationBar) // fully hide nav bar
     }
 }
 

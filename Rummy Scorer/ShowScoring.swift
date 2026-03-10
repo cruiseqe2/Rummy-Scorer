@@ -111,15 +111,8 @@ struct ShowScoring: View {
                         let p0 = model.getFigures(forLine: i, andPlayer: 0)
                         let p1 = model.getFigures(forLine: i, andPlayer: 1)
                         
-                        var p0Empty: Bool {
-                            (p0.credits == 0 && p0.debits == 0 && p0.total == 0)  ||
-                            (p0.credits == nil && p0.debits == nil && p0.total == 0)
-                        }
-                        
-                        var p1Empty: Bool {
-                            (p1.credits == 0 && p1.debits == 0 && p1.total == 0)  ||
-                            (p1.credits == nil && p1.debits == nil && p1.total == 0)
-                        }
+                        var p0Empty: Bool { p0.found == false }
+                        var p1Empty: Bool { p1.found == false }
                         
                         var pointLeft: Bool {
                             // Ensure we handle all cases, including when player0DealsFirst is nil

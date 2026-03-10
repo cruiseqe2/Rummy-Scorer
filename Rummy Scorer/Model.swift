@@ -125,11 +125,11 @@ class Model {
         }
     }
     
-    func getFigures(forLine line: Int, andPlayer player: Int) -> (credits: Int?, debits: Int?, total: Int) {
+    func getFigures(forLine line: Int, andPlayer player: Int) -> (found: Bool, credits: Int?, debits: Int?, total: Int) {
         if let entry = scoreSheet.first(where: { $0.scoreLine == line && $0.playerNumber == player }) {
-            return (entry.credits ?? nil, entry.debits ?? nil, entry.total)
+            return (true, entry.credits ?? nil, entry.debits ?? nil, entry.total)
         } else {
-            return (nil, nil, 0)
+            return (false, nil, nil, 0)
         }
     }
     
